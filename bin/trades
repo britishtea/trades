@@ -1,4 +1,10 @@
 #!/usr/bin/env ruby
 
 require 'trades'
-Trades.new ARGV
+
+
+begin
+  Trades.new ARGV
+rescue SystemExit, Interrupt
+  puts "\nQuitting..."
+end

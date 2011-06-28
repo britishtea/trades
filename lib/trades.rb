@@ -13,7 +13,7 @@ class Trades
     
     #     thUSD          | 2011-06-27 23:00:55 | USD      | 17.05  | 0.5    |
     puts "Exchange       | Date and time       | Currency | Price  | Volume |"
-
+      
     while data = @socket.gets do
       if data.length > 0
         begin
