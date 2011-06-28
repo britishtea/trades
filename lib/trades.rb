@@ -17,8 +17,9 @@ class Trades
     while data = @socket.gets do
       if data.length > 0
         begin
-          j = JSON.parse(data.strip)
+          j = JSON.parse(data.strip.tr("\x00", '')) # Delete all \x00
         rescue
+          puts "Error: #{$!}\n #{data}"
         end
     
         if args.length == 0 or args.include?(j['symbol'].downcase) then
