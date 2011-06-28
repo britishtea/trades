@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'trades'
+Trades.new ARGV
