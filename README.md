@@ -10,7 +10,7 @@ You can also display trades from specified exchanges only. You'll need to make s
 Data
 ====
 
-All data is provided by Bitcoincharts.com, via their telnet API socket thing.
+All data is provided by Bitcoincharts.com (http://bitcoincharts.com/), via their telnet API socket thing.
 
 License
 =======
