@@ -1,7 +1,7 @@
 Install
 =======
 
-You'll need [Rubygems](https://rubygems.org/pages/download). After Rubygems is installed, type `gem install trades` or `sudo gem install trades` if the former gives you errors. The gem comes with 
+You'll need [Rubygems](https://rubygems.org/pages/download). After Rubygems is installed, type `gem install trades` or `sudo gem install trades` if the former gives you errors.
 
 Usage
 =====
