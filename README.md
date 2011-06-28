@@ -1,10 +1,12 @@
 Usage
 =====
 
-To display trades from all the exchanges Bitcoincharts monitors:
+To display trades from all the exchanges Bitcoincharts monitors.
+
 	`trades`
 
 You can also display trades from specified exchanges only. You'll need to make sure you use the same name that Bitcoincharts uses. The arguments are case-insensitive and you can specify as many as you want.
+
 	`trades mtgoxUSD thusd`
 
 Data
