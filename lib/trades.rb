@@ -6,6 +6,11 @@ class Trades
   def initialize(args = [])
     @socket    = TCPSocket.open("bitcoincharts.com", 27007)
     
+    # Convert the exchange names to lowercase
+    args.collect do |exchange|
+      exchange.downcase
+    end
+    
     #     thUSD          | 2011-06-27 23:00:55 | USD      | 17.05  | 0.5    |
     puts "Exchange       | Date and time       | Currency | Price  | Volume |"
 
