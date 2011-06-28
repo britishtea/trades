@@ -19,7 +19,7 @@ If you want to use trades in your own project, you can initialize a new session 
 Data
 ====
 
-All data is provided by Bitcoincharts.com (http://bitcoincharts.com/), via their telnet API socket thing.
+All data is provided by [Bitcoincharts.com](http://bitcoincharts.com/), via their telnet API socket thing.
 
 License
 =======
