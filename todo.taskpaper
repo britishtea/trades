@@ -1,2 +1,7 @@
-Future features:
-	- Log all transactions to a specified file
+Future Features:
+	- Logger: log all transactions to a specified file (-f filename.ext)
+	- Terminal colors (green when current price > last price, etc)
+	- 
+
+Known Bugs:
+	-
