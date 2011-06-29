@@ -6,13 +6,13 @@ require 'colored'
 class Trades
   def initialize(args = [])
     begin
-      puts "Connecting..."
+      puts "Connecting to bitcoincharts.com..."
       @socket      = TCPSocket.open("bitcoincharts.com", 27007)
-      @exchanges   = []
+      @markets   = []
       @last_prices = {}
 
       # Convert the exchange names to lowercase
-      args.each do |x| @exchanges.push(x.downcase) end
+      args.each do |x| @markets.push(x.downcase) end
       args.clear
 
       #     thUSD          | 2011-06-27 23:00:55 | USD      | 17.05  | 0.5    |
@@ -29,7 +29,7 @@ class Trades
       if data.length > 0
         j = JSON.parse(data.strip.tr("\x00", '')) # Delete all \x00 weirdness
     
-        if @exchanges.empty? or @exchanges.include?(j['symbol'].downcase) then
+        if @markets.empty? or @markets.include?(j['symbol'].downcase) then
           line  = j['symbol'].ljust(15) + "| "
           line += Time.at(j['timestamp']).strftime("%Y-%m-%d %H:%M:%S").\
           ljust(20)
@@ -48,7 +48,6 @@ class Trades
           end
           
           @last_prices[j['symbol']] = current_price
-          
           
           line += "| " + j['volume'].round(2).to_s.ljust(7) + "|"
     
