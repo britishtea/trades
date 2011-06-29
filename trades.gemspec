@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'trades'
-  s.version     = '0.1.3'
+  s.version     = '0.2'
   s.summary     = "Nice trading data"
   s.description = "Displays the trades that Bitcoincharts monitors nicely"
   s.authors     = ["Waxjar"]
@@ -8,4 +8,5 @@ Gem::Specification.new do |s|
   s.executables << 'trades'
   
   s.add_runtime_dependency 'json', '~> 1.5.3'
+  s.add_runtime_dependency 'colored', '~> 1.2'
 end
