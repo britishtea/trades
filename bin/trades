@@ -2,7 +2,6 @@
 
 require 'trades'
 
-
 begin
   Trades.new ARGV
 rescue SystemExit, Interrupt
