@@ -3,7 +3,10 @@
 require 'trades'
 
 begin
-  Trades.new ARGV
-rescue SystemExit, Interrupt
+  Trades.new ARGV 
+rescue SystemExit
+  puts "Connection lost. Reconnecting..."
+  retry
+rescue Interrupt
   puts "\nQuitting..."
 end
