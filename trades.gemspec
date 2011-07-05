@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'trades'
-  s.version     = '0.2'
+  s.version     = '0.2.1'
   s.summary     = "Nice trading data"
   s.description = "Displays the trades that Bitcoincharts monitors nicely"
   s.authors     = ["Waxjar"]
