@@ -33,14 +33,14 @@ begin
     end
     
     # Compare price of this trade with last trade
-    unless last_price[trade.market].nil?
-      price = trade.price # we need to save an uncolored copy later
-      trade.price.green if price > last_price[trade.market]
-      trade.price.red if price < last_price[trade.market]
-      last_price[trade.market] = price
+    if last_price.key? trade.market
+      color = 'green' if trade.price > last_price[trade.market]
+      color = 'red' if trade.price < last_price[trade.market]
     end
+    
+    last_price[trade.market] = trade.price
       
-    puts trade
+    puts color.nil? ? trade : trade.to_s.send(color)
     options.logger.info trade if options.log
   end
 rescue Interrupt  

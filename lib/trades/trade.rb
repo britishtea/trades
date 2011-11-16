@@ -24,12 +24,8 @@ class Trade
     Time.at(@timestamp).strftime(format)
   end
   
-  def price(decimals = 4)
-    @price.round(decimals)
-  end
-  
   def to_s
     "#{@market.ljust(15)} | #{timestamp()} | #{@currency.ljust(9)} | " +
-    "#{price().to_s.ljust(9)} | #{@volume.to_s}"
+    "#{@price.round(4).to_s.ljust(9)} | #{@volume.to_s}"
   end
 end
