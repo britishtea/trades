@@ -1,12 +1,17 @@
 Gem::Specification.new do |s|
   s.name        = 'trades'
-  s.version     = '0.2.1'
-  s.summary     = "Nice trading data"
-  s.description = "Displays the trades that Bitcoincharts monitors nicely"
+  s.version     = '1.0'
   s.authors     = ["Waxjar"]
-  s.files       = ["lib/trades.rb"]
+  s.homepage    = "https://github.com/britishtea/Trades"
+  s.summary     = "Bitcoin trading data on the command line"
+  s.description = "Displays the trading data that Bitcoincharts monitors nicely"
+  s.requirements << "Ruby version 1.9.2 or higher"
+
+  s.files       = Dir["lib/trades.rb", "lib/trades/*"]
+  s.test_files  = ["tests/trade.rb"]
   s.executables << 'trades'
   
-  s.add_runtime_dependency 'json', '~> 1.5.3'
+  s.add_runtime_dependency 'bundler', '~> 1.0'
   s.add_runtime_dependency 'colored', '~> 1.2'
+  s.add_runtime_dependency 'json', '~> 1.6.1'
 end

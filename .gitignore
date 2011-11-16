@@ -1,2 +1,1 @@
-bin/development
-*.gem
+.DS_Store

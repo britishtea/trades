@@ -1,9 +1,54 @@
 #!/usr/bin/env ruby
-
-require 'trades'
+# encoding: utf-8
 
 begin
-  Trades.new ARGV
-rescue SystemExit, Interrupt
-  puts "\nQuitting..."
+  require 'bundler/setup'
+  require 'colored'
+  require 'optparse'
+  require 'socket'
+  require 'trades'
+  
+  options = TradeOptions.parse(ARGV)
+  
+  # Connect to Bitcoincharts.com
+  puts "Connecting to bitcoincharts.com..."
+  if socket = TCPSocket.open("bitcoincharts.com", 27007)
+    puts "Connected.\n".green
+    puts "Market          | Time     | Currency  | Price     | Volume"
+    
+    options.logger.info "Trades has been started.\n" if options.log
+  end
+  
+  last_price = {}
+  
+  while data = socket.gets do
+    trade = Trade.new data
+    
+    # Check if the trade should be displayed
+    if options.filter == :markets && options.markets.length > 0
+      next unless options.markets.include? trade.market
+    end
+    if options.filter == :currencies && options.currencies.length > 0
+      next unless options.currencies.include? trade.currency
+    end
+    
+    # Compare price of this trade with last trade
+    unless last_price[trade.market].nil?
+      price = trade.price # we need to save an uncolored copy later
+      trade.price.green if price > last_price[trade.market]
+      trade.price.red if price < last_price[trade.market]
+      last_price[trade.market] = price
+    end
+      
+    puts trade
+    options.logger.info trade if options.log
+  end
+rescue Interrupt  
+  puts " Disconnecting..."
+  
+  options.logger.info "\nTrades has been closed.\n\n" if options.log
+rescue OptionParser::ParseError => error
+  puts "Something went wrong".red + "\n#{error}\n\nType 'trades -h' for help"
+rescue => error
+  puts "Disconnected: #{error}"
 end
