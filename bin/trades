@@ -41,6 +41,8 @@ begin
     last_price[trade.market] = trade.price
       
     puts color.nil? ? trade : trade.to_s.send(color)
+    color = nil
+    
     options.logger.info trade if options.log
   end
 rescue Interrupt  

@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'trades'
-  s.version     = '1.0.1'
+  s.version     = '1.0.2'
   s.authors     = ["Waxjar"]
   s.homepage    = "https://github.com/britishtea/Trades"
   s.summary     = "Bitcoin trading data on the command line"
