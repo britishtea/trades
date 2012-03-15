@@ -13,7 +13,7 @@ begin
   # Connect to Bitcoincharts.com
   puts "Connecting to bitcoincharts.com..."
   if socket = TCPSocket.open("bitcoincharts.com", 27007)
-    puts "Connected.\n".green
+    puts options.color ? "Connected.".green : "Connected.\n"
     puts "Market          | Time     | Currency  | Price     | Volume"
     
     options.logger.info "Trades has been started.\n" if options.log
@@ -28,12 +28,13 @@ begin
     if options.filter == :markets && options.markets.length > 0
       next unless options.markets.include? trade.market
     end
+    
     if options.filter == :currencies && options.currencies.length > 0
       next unless options.currencies.include? trade.currency
     end
     
     # Compare price of this trade with last trade
-    if last_price.key? trade.market
+    if options.color && last_price.key?(trade.market)
       color = 'green' if trade.price > last_price[trade.market]
       color = 'red' if trade.price < last_price[trade.market]
     end

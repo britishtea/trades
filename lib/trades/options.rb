@@ -44,6 +44,7 @@ class TradeOptions
     options.filter     = :markets
     options.markets    = []
     options.currencies = []
+    options.color      = true
 
     opts = OptionParser.new do |opts|
     	opts.banner = "Usage: trades [options]\n\n"
@@ -70,12 +71,11 @@ class TradeOptions
     		options.logger = Logger.new File.new(file, 'a+')
     		options.logger.formatter = proc { |s, d, p, m| "#{m}\n" }
     	end
-
-      # Help
-      opts.on_tail("-h", "--help", "Show this message") do
-        puts "#{opts}\n\nMore info: https://github.com/britishtea/Trades"
-        exit
-      end
+    	
+    	# No-color
+    	opts.on_tail("--no-color", "Plain text instead of output colorized") do
+    	  options.color = false
+  	  end
       
       # List of markets
       opts.on_tail("--markets", "Show a list of all markets") do
@@ -87,6 +87,12 @@ class TradeOptions
       # List of currencies
       opts.on_tail("--currencies", "Show a list of all currencies") do
         puts "Currencies: #{CURRENCIES.values.uniq.join ', '}"
+        exit
+      end
+      
+      # Help
+      opts.on_tail("-h", "--help", "Show this message") do
+        puts "#{opts}\n\nMore info: https://github.com/britishtea/Trades"
         exit
       end
     end
