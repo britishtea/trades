@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Trades by britishtea</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Trades</h1>
+        <p>Displays the real-time data on Bitcoincharts.com nicely</p>
+        <p class="view"><a href="https://github.com/britishtea/trades">View the Project on GitHub <small>britishtea/trades</small></a></p>
+        <ul>
+          <li><a href="https://github.com/britishtea/trades/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/britishtea/trades/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/britishtea/trades">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>Installation</h1>
+
+<p>Open up your terminal and type <code>gem install trades</code> or <code>sudo gem install trades</code> if the former gives you errors.</p>
+
+<p>Alternatively you can download the 'trades-x.x.gem' file (listed above) and install that using <code>gem install /path/to/trades-x.x.gem</code> (replace x.x).</p>
+
+<p>You need to have <a href="http://ruby.about.com/od/tutorials/a/installruby.htm">Ruby</a> and <a href="http://rubygems.org/pages/download">RubyGems</a> (included by default) installed. To test if you've got Ruby installed, type <code>ruby -v</code> in your terminal. This should display a version number if Ruby is installed.</p>
+
+<p>Trades is developed and tested on Ruby version <strong>1.9.2</strong>.</p>
+
+<h1>Usage</h1>
+
+<pre><code>Usage: trades [options]
+
+Options:
+    -m, --market MARKET              Filter on MARKET
+    -c, --currency CURRENCY          Filter on CURRENCY
+    -l, --log [FILENAME]             Log the results to FILENAME
+        --no-color                   Plain text instead of output colorized
+        --markets                    Show a list of all markets
+        --currencies                 Show a list of all currencies
+    -h, --help                       Show this message
+</code></pre>
+
+<p>More info: <a href="https://github.com/britishtea/Trades">https://github.com/britishtea/Trades</a></p>
+
+<p>To filter on market, type <code>trades -m mtgoxUSD</code> in your terminal. Type <code>trades -m mtgoxUSD -m thUSD</code> to filter on multiple markets. Trades uses the same names for markets as Bitcoincharts uses, though Trades has some aliases built-in. </p>
+
+<p>To filter on currency, type <code>trades -c USD</code> in your terminal. Type <code>trades -c USD -c EUR -c GBP</code> to filter on multiple currencies.</p>
+
+<p>To log the results to a file, type <code>trades -l /location/trades.log</code> in your terminal. If no file is given, Trades will create a logfile in /var/log/. You can use this option in combination with one of the filtering options.</p>
+
+<h1>License</h1>
+
+<p>All data is provided by <a href="http://bitcoincharts.com/">Bitcoincharts.com</a>. As long as you don't sell Trades for monies (or bitcoins!) you can do anything you want with it, except for rape.</p>
+
+<p>Donations: 1PfTKrqoZpi9iUQVEqmCQTKkbXEGPNrypj</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/britishtea">britishtea</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
